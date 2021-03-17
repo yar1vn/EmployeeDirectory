@@ -16,7 +16,7 @@ import OSLog
 
 class EmployeesViewController: UIViewController {
     private let directory = EmployeeDirectory(
-        networkController: NetworkController(endpoint: .directoryMalformed)
+        networkController: NetworkController(endpoint: .directory)
     )
     private var state: FetchState = .none {
         didSet { updateUI() }
