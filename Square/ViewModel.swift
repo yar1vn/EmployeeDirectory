@@ -15,13 +15,11 @@ struct EmployeeViewModel: Hashable {
     let smallPhoto: UIImage?
     
     init?(employee: Employee, photo: UIImage?) {
-        guard let id = employee.uuid,
-              let fullName = employee.fullName
-        else {
+        guard let fullName = employee.fullName else {
             return nil
         }
         
-        self.id = id
+        self.id = employee.uuid
         self.fullName = fullName
         self.teamName = employee.team
         self.smallPhoto = photo

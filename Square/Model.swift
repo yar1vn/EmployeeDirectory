@@ -24,7 +24,7 @@ struct Directory: Codable {
 
 // MARK: - Employee
 struct Employee: Codable {
-    let uuid: String?
+    let uuid: String
     let fullName: String?
     let phoneNumber: String?
     let emailAddress: String?
