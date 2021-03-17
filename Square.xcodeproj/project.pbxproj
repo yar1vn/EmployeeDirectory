@@ -12,13 +12,18 @@
 		6EC5F79926018BD000428257 /* EmployeesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EC5F79826018BD000428257 /* EmployeesViewController.swift */; };
 		6EC5F79C26018BD000428257 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6EC5F79A26018BD000428257 /* Main.storyboard */; };
 		6EC5F79E26018BD200428257 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6EC5F79D26018BD200428257 /* Assets.xcassets */; };
-		6EC5F7AC26018BD200428257 /* SquareTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EC5F7AB26018BD200428257 /* SquareTests.swift */; };
 		6EC5F7B726018BD200428257 /* SquareUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EC5F7B626018BD200428257 /* SquareUITests.swift */; };
 		6EC5F7CF26018F7C00428257 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EC5F7CE26018F7C00428257 /* Model.swift */; };
 		6EC5F7D72601939100428257 /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EC5F7D62601939100428257 /* NetworkController.swift */; };
 		6EC5F7E426019DBA00428257 /* Network Support.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EC5F7E326019DBA00428257 /* Network Support.swift */; };
 		6EC5F7EF2601B70100428257 /* EmployeeDirectory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EC5F7EE2601B70100428257 /* EmployeeDirectory.swift */; };
 		6EC5F8042602AA5E00428257 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EC5F8032602AA5E00428257 /* ViewModel.swift */; };
+		6EC5F8122602B8E800428257 /* ModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EC5F8112602B8E800428257 /* ModelTests.swift */; };
+		6EC5F81A2602BC5A00428257 /* ViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EC5F8192602BC5A00428257 /* ViewModelTests.swift */; };
+		6EC5F8222602BDA400428257 /* NetworkControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EC5F8212602BDA400428257 /* NetworkControllerTests.swift */; };
+		6EC5F82A2602C51800428257 /* EmployeeDirectoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EC5F8292602C51800428257 /* EmployeeDirectoryTests.swift */; };
+		6EC5F8322602C71100428257 /* MockNetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EC5F8312602C71100428257 /* MockNetworkController.swift */; };
+		6EC5F8442602C76800428257 /* MockJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EC5F8432602C76800428257 /* MockJSON.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,7 +52,6 @@
 		6EC5F79D26018BD200428257 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6EC5F7A226018BD200428257 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6EC5F7A726018BD200428257 /* SquareTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SquareTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		6EC5F7AB26018BD200428257 /* SquareTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareTests.swift; sourceTree = "<group>"; };
 		6EC5F7AD26018BD200428257 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6EC5F7B226018BD200428257 /* SquareUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SquareUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6EC5F7B626018BD200428257 /* SquareUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareUITests.swift; sourceTree = "<group>"; };
@@ -57,6 +61,12 @@
 		6EC5F7E326019DBA00428257 /* Network Support.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Network Support.swift"; sourceTree = "<group>"; };
 		6EC5F7EE2601B70100428257 /* EmployeeDirectory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeDirectory.swift; sourceTree = "<group>"; };
 		6EC5F8032602AA5E00428257 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		6EC5F8112602B8E800428257 /* ModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelTests.swift; sourceTree = "<group>"; };
+		6EC5F8192602BC5A00428257 /* ViewModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModelTests.swift; sourceTree = "<group>"; };
+		6EC5F8212602BDA400428257 /* NetworkControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkControllerTests.swift; sourceTree = "<group>"; };
+		6EC5F8292602C51800428257 /* EmployeeDirectoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeDirectoryTests.swift; sourceTree = "<group>"; };
+		6EC5F8312602C71100428257 /* MockNetworkController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkController.swift; sourceTree = "<group>"; };
+		6EC5F8432602C76800428257 /* MockJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockJSON.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,7 +129,11 @@
 		6EC5F7AA26018BD200428257 /* SquareTests */ = {
 			isa = PBXGroup;
 			children = (
-				6EC5F7AB26018BD200428257 /* SquareTests.swift */,
+				6EC5F8392602C72C00428257 /* Mocks */,
+				6EC5F8112602B8E800428257 /* ModelTests.swift */,
+				6EC5F8192602BC5A00428257 /* ViewModelTests.swift */,
+				6EC5F8212602BDA400428257 /* NetworkControllerTests.swift */,
+				6EC5F8292602C51800428257 /* EmployeeDirectoryTests.swift */,
 				6EC5F7AD26018BD200428257 /* Info.plist */,
 			);
 			path = SquareTests;
@@ -162,6 +176,15 @@
 				6EC5F7CE26018F7C00428257 /* Model.swift */,
 			);
 			name = "Directory Objects";
+			sourceTree = "<group>";
+		};
+		6EC5F8392602C72C00428257 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				6EC5F8312602C71100428257 /* MockNetworkController.swift */,
+				6EC5F8432602C76800428257 /* MockJSON.swift */,
+			);
+			path = Mocks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -308,7 +331,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6EC5F7AC26018BD200428257 /* SquareTests.swift in Sources */,
+				6EC5F8122602B8E800428257 /* ModelTests.swift in Sources */,
+				6EC5F8322602C71100428257 /* MockNetworkController.swift in Sources */,
+				6EC5F8222602BDA400428257 /* NetworkControllerTests.swift in Sources */,
+				6EC5F8442602C76800428257 /* MockJSON.swift in Sources */,
+				6EC5F81A2602BC5A00428257 /* ViewModelTests.swift in Sources */,
+				6EC5F82A2602C51800428257 /* EmployeeDirectoryTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

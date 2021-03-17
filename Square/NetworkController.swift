@@ -9,7 +9,12 @@ import Foundation
 import Combine
 import UIKit.UIImage
 
-final class NetworkController {
+protocol NetworkControllerProtocol {
+    func employeeDirectoryPublisher() -> AnyPublisher<[Employee], Error>
+    func employeesWithPhotosPublisher(employees: [Employee]) -> AnyPublisher<EmployeeViewModel, Never>
+}
+
+final class NetworkController: NetworkControllerProtocol {
     private lazy var sessionWithCache: URLSession = {
         let sessionConfig = URLSessionConfiguration.default
         sessionConfig.urlCache = URLCache(count: 1000) // Estimated cache size.

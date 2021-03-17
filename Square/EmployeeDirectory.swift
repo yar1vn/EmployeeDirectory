@@ -10,9 +10,9 @@ import Combine
 import UIKit.UIImage
 
 class EmployeeDirectory: ObservableObject {
-    let networkController: NetworkController
+    let networkController: NetworkControllerProtocol
     
-    init(networkController: NetworkController = NetworkController()) {
+    init(networkController: NetworkControllerProtocol = NetworkController()) {
         self.networkController = networkController
     }
     
