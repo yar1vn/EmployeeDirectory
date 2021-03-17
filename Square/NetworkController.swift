@@ -61,10 +61,8 @@ extension NetworkController {
     
     // Use `sessionWithCache` to automatically cache photo data per url
     // This saves us the trouble of managing our own disk cache
-    private func imagePublisher(imageURL: String?) -> AnyPublisher<UIImage?, Never> {
-        guard let string = imageURL,
-              let imageURL = URL(string: string)
-        else {
+    private func imagePublisher(imageURL: URL?) -> AnyPublisher<UIImage?, Never> {
+        guard let imageURL = imageURL else {
             return Just(nil).eraseToAnyPublisher() // support empty images
         }
         

@@ -22,7 +22,6 @@ struct Service {
     }
     
     // MARK: Get URL
-    
     func url(endpoint: Endpoint) -> URL {
         let urlString = baseURL + endpoint.rawValue + ".json"
         
