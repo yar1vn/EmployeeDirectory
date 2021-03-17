@@ -63,7 +63,7 @@ class EmployeesViewController: UIViewController {
         
         switch state {
         case let .success(employees) where employees.isEmpty:
-            emptyState(title: "Employee Directory is Empty.")
+            emptyState(title: NSLocalizedString("Employee Directory is Empty.", comment: "Placeholder text when no employees are found."))
         
         case let .success(employees):
             var snapshot = NSDiffableDataSourceSectionSnapshot<EmployeeViewModel>()
@@ -71,9 +71,9 @@ class EmployeesViewController: UIViewController {
             dataSource.apply(snapshot, to: 0, animatingDifferences: true)
             
         case let .failure(error):
-            print(error)
-            emptyState(title: "We Encountered an Error Loading the Employee Directory.\n\n (\(error.localizedDescription))",
-                       isError: true)
+            let localizedTitle = NSLocalizedString("We Encountered an Error Loading the Employee Directory.", comment: "Placeholder text when error is encountered.")
+            emptyState(title: localizedTitle +
+                        "\n\n (\(error.localizedDescription))", isError: true)
             
         case .none:
             resetUI()
@@ -88,11 +88,11 @@ class EmployeesViewController: UIViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.preferredFont(forTextStyle: .body)
         label.numberOfLines = 0
-        label.textColor = isError ? .systemRed : .black
+        label.textColor = isError ? .systemRed : .label
         label.textAlignment = .center
         
         let image = UIImage(systemName: "square.fill")?
-            .withRenderingMode(.alwaysOriginal)
+            .withTintColor(UIColor.label, renderingMode: .alwaysOriginal)
         let imageView = UIImageView(image: image)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.preferredSymbolConfiguration = UIImage.SymbolConfiguration(textStyle: .largeTitle)
