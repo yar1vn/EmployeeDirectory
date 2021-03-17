@@ -10,8 +10,6 @@ import Combine
 import UIKit.UIImage
 
 final class NetworkController {
-    static let shared = NetworkController()
-    
     private lazy var sessionWithCache: URLSession = {
         let sessionConfig = URLSessionConfiguration.default
         sessionConfig.urlCache = URLCache(count: 1000) // Estimated cache size.
@@ -46,16 +44,16 @@ extension NetworkController {
             .eraseToAnyPublisher()
     }
     
-    /// Create a publisher to fetch Profile Photos  for `contacts`
+    /// Create a publisher to fetch Photos for Employee
     ///
-    /// - parameter employees: Array `Contact` objects
-    /// - returns: Array of updated Contact with `profilePhotos` populated
+    /// - parameter employees: Array of `Employee` objects
+    /// - returns: Employee View Model with valid information and photo
     ///
     func employeesWithPhotosPublisher(employees: [Employee]) -> AnyPublisher<EmployeeViewModel, Never> {
         Publishers.MergeMany(
             employees.compactMap { employee in
                 imagePublisher(imageURL: employee.photoUrlSmall)
-                    .map { EmployeeViewModel(employee: employee, photo: $0) }
+                    .compactMap { EmployeeViewModel(employee: employee, photo: $0) }
                     .eraseToAnyPublisher()
             })
             .eraseToAnyPublisher()
@@ -63,10 +61,11 @@ extension NetworkController {
     
     // Use `sessionWithCache` to automatically cache photo data per url
     // This saves us the trouble of managing our own disk cache
-    private func imagePublisher(imageURL: String) -> AnyPublisher<UIImage, Never> {
-        guard let imageURL = URL(string: imageURL) else {
-            return Empty<UIImage, Never>(completeImmediately: true)
-                .eraseToAnyPublisher()
+    private func imagePublisher(imageURL: String?) -> AnyPublisher<UIImage?, Never> {
+        guard let string = imageURL,
+              let imageURL = URL(string: string)
+        else {
+            return Just(nil).eraseToAnyPublisher() // support empty images
         }
         
         return sessionWithCache

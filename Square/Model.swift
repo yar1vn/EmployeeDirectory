@@ -24,15 +24,15 @@ struct Directory: Codable {
 
 // MARK: - Employee
 struct Employee: Codable {
-    let uuid: String
-    let fullName: String
-    let phoneNumber: String
-    let emailAddress: String
-    let biography: String
-    let photoUrlSmall: String
-    let photoUrlLarge: String
-    let team: String
-    let employeeType: EmployeeType
+    let uuid: String?
+    let fullName: String?
+    let phoneNumber: String?
+    let emailAddress: String?
+    let biography: String?
+    let photoUrlSmall: String?
+    let photoUrlLarge: String?
+    let team: String?
+    let employeeType: EmployeeType?
 
     enum CodingKeys: String, CodingKey {
         case uuid

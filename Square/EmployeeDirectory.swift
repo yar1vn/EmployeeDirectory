@@ -34,17 +34,3 @@ enum FetchState {
     case failure(Error)
     case none
 }
-
-struct EmployeeViewModel: Hashable {
-    let id: String
-    let fullName: String
-    let smallPhoto: UIImage
-    let teamName: String
-    
-    init(employee: Employee, photo: UIImage) {
-        self.id = employee.uuid
-        self.fullName = employee.fullName
-        self.teamName = employee.team
-        self.smallPhoto = photo
-    }
-}

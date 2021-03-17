@@ -7,21 +7,16 @@
 
 import UIKit
 import Combine
+import OSLog
 
 /*
  TODO:
- - Model + ViewModel √
- - Network layer √
- - Image Cache √
- - Basic UI - Collection View + Diffable √
- - Customize UI - Rounded Corners √
- - Handle Error and Empty State
  - Unit Tests
  */
 
 class EmployeesViewController: UIViewController {
     private let directory = EmployeeDirectory(
-        networkController: NetworkController(endpoint: .directory)
+        networkController: NetworkController(endpoint: .directoryMalformed)
     )
     private var state: FetchState = .none {
         didSet { updateUI() }
@@ -70,10 +65,12 @@ class EmployeesViewController: UIViewController {
             snapshot.append(employees)
             dataSource.apply(snapshot, to: 0, animatingDifferences: true)
             
-        case let .failure(error):
+        case let .failure(error as NSError):
             let localizedTitle = NSLocalizedString("We Encountered an Error Loading the Employee Directory.", comment: "Placeholder text when error is encountered.")
             emptyState(title: localizedTitle +
-                        "\n\n (\(error.localizedDescription))", isError: true)
+                        "\n\n (\(error.localizedFailureReason ?? error.localizedDescription))", isError: true)
+            
+            Logger().error("Loading Error: \(error.localizedFailureReason ?? error.localizedDescription)\n\(error.description)")
             
         case .none:
             resetUI()
