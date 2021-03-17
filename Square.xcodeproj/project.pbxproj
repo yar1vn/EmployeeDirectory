@@ -18,6 +18,7 @@
 		6EC5F7CF26018F7C00428257 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EC5F7CE26018F7C00428257 /* Model.swift */; };
 		6EC5F7D72601939100428257 /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EC5F7D62601939100428257 /* NetworkController.swift */; };
 		6EC5F7E426019DBA00428257 /* Network Support.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EC5F7E326019DBA00428257 /* Network Support.swift */; };
+		6EC5F7EF2601B70100428257 /* EmployeeDirectory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EC5F7EE2601B70100428257 /* EmployeeDirectory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		6EC5F7CE26018F7C00428257 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		6EC5F7D62601939100428257 /* NetworkController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkController.swift; sourceTree = "<group>"; };
 		6EC5F7E326019DBA00428257 /* Network Support.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Network Support.swift"; sourceTree = "<group>"; };
+		6EC5F7EE2601B70100428257 /* EmployeeDirectory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeDirectory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,10 +107,10 @@
 		6EC5F79326018BD000428257 /* Square */ = {
 			isa = PBXGroup;
 			children = (
-				6EC5F79826018BD000428257 /* EmployeesViewController.swift */,
-				6EC5F7CE26018F7C00428257 /* Model.swift */,
-				6EC5F7E226019D9300428257 /* Network */,
 				6EC5F79A26018BD000428257 /* Main.storyboard */,
+				6EC5F79826018BD000428257 /* EmployeesViewController.swift */,
+				6EC5F7F62601C7F300428257 /* Directory Objects */,
+				6EC5F7E226019D9300428257 /* Network */,
 				6EC5F7C726018C0A00428257 /* Support */,
 			);
 			path = Square;
@@ -151,6 +153,15 @@
 				6EC5F7E326019DBA00428257 /* Network Support.swift */,
 			);
 			name = Network;
+			sourceTree = "<group>";
+		};
+		6EC5F7F62601C7F300428257 /* Directory Objects */ = {
+			isa = PBXGroup;
+			children = (
+				6EC5F7EE2601B70100428257 /* EmployeeDirectory.swift */,
+				6EC5F7CE26018F7C00428257 /* Model.swift */,
+			);
+			name = "Directory Objects";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -286,6 +297,7 @@
 				6EC5F7D72601939100428257 /* NetworkController.swift in Sources */,
 				6EC5F79926018BD000428257 /* EmployeesViewController.swift in Sources */,
 				6EC5F79526018BD000428257 /* AppDelegate.swift in Sources */,
+				6EC5F7EF2601B70100428257 /* EmployeeDirectory.swift in Sources */,
 				6EC5F7E426019DBA00428257 /* Network Support.swift in Sources */,
 				6EC5F79726018BD000428257 /* SceneDelegate.swift in Sources */,
 				6EC5F7CF26018F7C00428257 /* Model.swift in Sources */,
