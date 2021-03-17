@@ -34,14 +34,11 @@ class EmployeesViewController: UIViewController {
     
     // MARK:- View lifecycle
     
-    override func loadView() {
-        view = createCollectionView()
-        createDataSource()
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        createCollectionView()
+        createDataSource()
         loadDirectory()
     }
     
@@ -57,8 +54,17 @@ class EmployeesViewController: UIViewController {
             })
     }
     
+    private func resetUI() {
+        emptyStack?.removeFromSuperview()
+    }
+    
     private func updateUI() {
+        resetUI()
+        
         switch state {
+        case let .success(employees) where employees.isEmpty:
+            emptyState(title: "Employee Directory is Empty.")
+        
         case let .success(employees):
             var snapshot = NSDiffableDataSourceSectionSnapshot<EmployeeViewModel>()
             snapshot.append(employees)
@@ -66,10 +72,46 @@ class EmployeesViewController: UIViewController {
             
         case let .failure(error):
             print(error)
+            emptyState(title: "We Encountered an Error Loading the Employee Directory.\n\n (\(error.localizedDescription))",
+                       isError: true)
             
         case .none:
-            break
+            resetUI()
         }
+    }
+    
+    private var emptyStack: UIStackView?
+    
+    private func emptyState(title: String, isError: Bool = false) {
+        let label = UILabel()
+        label.text = title
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = UIFont.preferredFont(forTextStyle: .body)
+        label.numberOfLines = 0
+        label.textColor = isError ? .systemRed : .black
+        label.textAlignment = .center
+        
+        let image = UIImage(systemName: "square.fill")?
+            .withRenderingMode(.alwaysOriginal)
+        let imageView = UIImageView(image: image)
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.preferredSymbolConfiguration = UIImage.SymbolConfiguration(textStyle: .largeTitle)
+        
+        let stack = UIStackView(arrangedSubviews: [imageView, label])
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        stack.spacing = 20
+        stack.axis = .vertical
+        stack.alignment = .center
+        
+        view.addSubview(stack)
+        NSLayoutConstraint.activate([
+            stack.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            stack.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            stack.leadingAnchor.constraint(equalToSystemSpacingAfter: view.leadingAnchor, multiplier: 0),
+            stack.trailingAnchor.constraint(equalToSystemSpacingAfter: view.trailingAnchor, multiplier: 0),
+        ])
+        stack.sizeToFit()
+        emptyStack = stack
     }
 }
 
@@ -77,8 +119,8 @@ class EmployeesViewController: UIViewController {
 
 extension EmployeesViewController {
     
-    private func createCollectionView() -> UICollectionView {
-        collectionView = UICollectionView(frame: .zero, collectionViewLayout: createLayout())
+    private func createCollectionView() {
+        collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: createLayout())
         collectionView.backgroundColor = .systemBackground
         refreshControl = UIRefreshControl(
             frame: .zero, primaryAction: UIAction(handler: { [weak self] _ in
@@ -86,7 +128,8 @@ extension EmployeesViewController {
             })
         )
         collectionView.refreshControl = refreshControl
-        return collectionView
+        collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        view.addSubview(collectionView)
     }
     
     private func createLayout() -> UICollectionViewLayout {
