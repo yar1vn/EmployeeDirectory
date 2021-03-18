@@ -9,11 +9,6 @@ import UIKit
 import Combine
 import OSLog
 
-/*
- TODO:
- - Unit Tests
- */
-
 class EmployeesViewController: UIViewController {
     private let directory = EmployeeDirectory(
         networkController: NetworkController(endpoint: .directory)
@@ -31,6 +26,8 @@ class EmployeesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        title = NSLocalizedString("Employee Directory", comment: "Employee Directory title")
         
         createCollectionView()
         createDataSource()
@@ -55,15 +52,14 @@ class EmployeesViewController: UIViewController {
     
     private func updateUI() {
         resetUI()
+        var snapshot = NSDiffableDataSourceSectionSnapshot<EmployeeViewModel>()
         
         switch state {
         case let .success(employees) where employees.isEmpty:
             emptyState(title: NSLocalizedString("Employee Directory is Empty.", comment: "Placeholder text when no employees are found."))
         
         case let .success(employees):
-            var snapshot = NSDiffableDataSourceSectionSnapshot<EmployeeViewModel>()
             snapshot.append(employees)
-            dataSource.apply(snapshot, to: 0, animatingDifferences: true)
             
         case let .failure(error as NSError):
             let localizedTitle = NSLocalizedString("We Encountered an Error Loading the Employee Directory.", comment: "Placeholder text when error is encountered.")
@@ -72,10 +68,13 @@ class EmployeesViewController: UIViewController {
             
             Logger().error("Loading Error: \(error.localizedFailureReason ?? error.localizedDescription)\n\(error.description)")
             
-        case .none:
-            resetUI()
+        case .none: break
         }
+        
+        dataSource.apply(snapshot, to: 0, animatingDifferences: true)
     }
+    
+    // MARK: Empty State
     
     private var emptyStack: UIStackView?
     

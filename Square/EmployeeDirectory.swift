@@ -18,8 +18,8 @@ class EmployeeDirectory: ObservableObject {
     
     func fetch() -> AnyPublisher<FetchState, Never> {
         return networkController
-            .employeeDirectoryPublisher()
-            .flatMap(networkController.employeesWithPhotosPublisher(employees:))
+            .employeeDirectoryPublisher() // fetch the employee directory
+            .flatMap(networkController.employeesWithPhotosPublisher(employees:)) // load and cache employee small photos
             .collect()
             .map { $0.sorted { a, b in a.fullName < b.fullName }} // sort by name
             .map { FetchState.success($0) } // map employee array to FetchState.success

@@ -67,6 +67,7 @@
 		6EC5F8292602C51800428257 /* EmployeeDirectoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeDirectoryTests.swift; sourceTree = "<group>"; };
 		6EC5F8312602C71100428257 /* MockNetworkController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkController.swift; sourceTree = "<group>"; };
 		6EC5F8432602C76800428257 /* MockJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockJSON.swift; sourceTree = "<group>"; };
+		6EC5F8482602CCF900428257 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +98,7 @@
 		6EC5F78826018BD000428257 = {
 			isa = PBXGroup;
 			children = (
+				6EC5F8482602CCF900428257 /* README.md */,
 				6EC5F79326018BD000428257 /* Square */,
 				6EC5F7AA26018BD200428257 /* SquareTests */,
 				6EC5F7B526018BD200428257 /* SquareUITests */,
